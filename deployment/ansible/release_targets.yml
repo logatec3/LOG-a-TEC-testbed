@@ -1,12 +1,11 @@
 ---
-- hosts: 192.168.12.81, 192.168.12.83
+- hosts: 192.168.12.111, 192.168.12.112, 192.168.12.113, 192.168.12.114
   remote_user: videk
 
 # Select which application to test, duration in minutes and which device should be the root of the network
   vars:
     application: 07_multicast
     duration: 3
-    root_node: 192.168.12.83
 
 # Display experiment abstract in build.log 
   tasks:
@@ -56,20 +55,14 @@
     args:
       chdir: ~/deploy/logatec-experiment
 
-  - name: Cleanup old docker containers (target)
-    register: target
+  - name: Cleanup old docker containers (_LORA)
+    register: target_LORA
     ignore_errors: yes
     command: "{{ item }}"
     with_items:
-      - docker kill target
-      - docker rm target
+      - docker kill target_LORA
+      - docker rm target_LORA
 
-    # Root node
-  - name: Run docker image for root
-    command: docker run -d --name target --privileged --net=host -it -e TARGET=run_experiment_root -e APP_DIR="{{application}}" -e APP_DURATION_MIN="{{duration}}" vesna-drivers
-    when: inventory_hostname == root_node
 
-    # Other nodes
   - name: Run docker image
-    command: docker run -d --name target --privileged --net=host -it -e TARGET=run_experiment_node -e APP_DIR="{{application}}" -e APP_DURATION_MIN="{{duration}}" vesna-drivers
-    when: inventory_hostname != root_node
+    command: docker run -d --name target_LORA --privileged --net=host -it -e TARGET=run_experiment -e APP_DIR="{{application}}" -e APP_DURATION_MIN="{{duration}}" vesna-drivers

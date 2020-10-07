@@ -3,12 +3,12 @@
   remote_user: videk
   tasks:
 
-  - name: Stop docker container (controller)
-    command: docker stop controller
+  - name: Stop docker container (controller_LORA)
+    command: docker stop controller_LORA
 
 # Script server.py makes dir results where measurements are stored
   - name: Copy file from the container
-    command: docker cp controller:/root/logatec-experiment/deployment/tasks/results/ .
+    command: docker cp controller_LORA:/root/logatec-experiment/deployment/tasks/results/ .
     args:
       chdir: ~/deploy/logatec-experiment
 

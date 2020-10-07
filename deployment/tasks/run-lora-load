@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+VESNALIB_LOCATION=../../..
+
+cd $VESNALIB_LOCATION/Examples/Radio/LoRa_Logatec/
+make LoRa_Logatec.load

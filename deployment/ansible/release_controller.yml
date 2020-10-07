@@ -33,12 +33,12 @@
     args:
       chdir: ~/deploy/logatec-experiment
 
-  - name: Cleanup old docker container (controller)
+  - name: Cleanup old docker container (controller_LORA)
     ignore_errors: yes
     command: "{{ item }}"
     with_items:
-      - docker kill controller
-      - docker rm controller
+      - docker kill controller_LORA
+      - docker rm controller_LORA
 
   - name: Run docker image
-    command: docker run --privileged --name controller -e TARGET=run_server -e NODES_NUM="{{nodes}}" -e APP_DURATION_MIN="{{duration}}" -p 50000:50000 vesna-drivers 
+    command: docker run --privileged --name controller_LORA -e TARGET=run_server -e NODES_NUM="{{nodes}}" -e APP_DURATION_MIN="{{duration}}" -p 50000:50000 vesna-drivers 

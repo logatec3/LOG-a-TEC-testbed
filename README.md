@@ -20,15 +20,9 @@ You can also add `--merge` or `--rebase` to merge/rebase your branch with remote
 
 If you want to make some changes to the sub-modules, first checkout to the branch you want, then commit changes and push them.
 
-## Branches
+## LoRa Branch
 
-There are few branches to work with different supported radios:
-
-* SRDA - 868 MHz band
-* SRDB - 2.4 GHz ISM band
-* BLE - Bluetooth LE
-* LoRa
-* UWB
+We don't need Contiki-NG OS here - Vesna devices use alh protocol, so we need only vesna-drivers sub-module.
 
 ## Testbed info
 
