@@ -1,14 +1,16 @@
 # Demo
 
-LGTC is communicating with Vesna over serial connection with ALH protocol.
+Vesna uses ALH protocol for controlling the LoRa radio. We can communicate with it locally - LGTC is communicating with Vesna over serial connection with ALH protocol, or we can do it remotely - our device can communicate with Vesna over www.  
 
 ## Run experiment localy
 
-### ALH setup
+To run the experiment locally on the machine (when you are connected to the LGTC via ssh for example), you must first run the script /deployment/tasks/run-lora-load which will start the ALH protocol on the Vesna device. Then you can execute the local scripts - check the scripts *demo_local-tx.py* and *demo_local_rx.py*.
 
-To run the experiment locally on the machine (when you are connected to the LGTC via ssh for example), you must first run the script /deployment/tasks/run-lora-load which will start the ALH protocol on the Vesna device. Then you can execute the local scripts to start the application.
+## Run experiment remotely
 
-### How to use it
+Again, Vesna must firstly set up ALH server (/deployment/tasks/run-lora-load). Then you can connect to it and send the GET and POST handlers to control the LoRa radio. Check the script demo_remote
+
+## How to use it
 
 There are 6 handlers implemented for LGTC to communicate with Vesna over ALH protocol:
 
@@ -25,7 +27,3 @@ There are 6 handlers implemented for LGTC to communicate with Vesna over ALH pro
     * Power in dBm (2 dBm ~ 14 dBm)
     * Message (up to 64 Bytes)
 * loraTxDone - if we want to make sure that packet was sent, we can send *```get loraTxDone```*
-
-## Run experiment remotely
-
-We can control the Vesna device also remotely with ALH protocol. Again, Vesna must firstly set up ALH server (/deployment/tasks/run-lora-load). Then you can connect to it and send the handlers to control the LoRa radio.
