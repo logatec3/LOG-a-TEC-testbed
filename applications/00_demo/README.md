@@ -1,3 +1,3 @@
-# Hello World application
+# Demo
 
 TODO: description, how it works...

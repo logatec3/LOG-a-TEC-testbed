@@ -32,7 +32,7 @@
       update: yes
       force: yes
       depth: 1
-      version: master
+      version: LoRa
 
 # It is better to download sub-modules separately, otherwise you get 95MB of data instead 28MB
 # Recursive option will download all sub-modules (also the ones from Contiki) which we don't need

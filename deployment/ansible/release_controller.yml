@@ -24,7 +24,7 @@
       update: yes
       force: yes
       depth: 1
-      version: master
+      version: LoRa
       
 # -f flag so we can later copy whole LOG-a-TEC directory into container
 # else we get error "Forbidden path outside the build context"

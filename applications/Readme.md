@@ -1,7 +1,5 @@
 # Description
 
-All applications and experiments are located in the folders. 
-
 ## Local test
 
 To test them locally, run:
